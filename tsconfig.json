@@ -14,8 +14,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "sourceMap": false,
+    "removeComments": true,
+    "noEmitOnError": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "exclude": ["node_modules", "dist", "tests", "**/*.test.ts"]
 } 

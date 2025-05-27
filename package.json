@@ -7,6 +7,7 @@
     "start": "node dist/server.js",
     "start:dev": "nodemon src/server.ts",
     "build": "tsc",
+    "postbuild": "node -e \"if (!require('fs').existsSync('./dist/server.js')) { console.error('Build failed: dist/server.js not found'); process.exit(1); }\"",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:coverage": "NODE_ENV=test jest --coverage",

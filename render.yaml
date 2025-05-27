@@ -2,7 +2,13 @@ services:
   - type: web
     name: car-dealer-management
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: |
+      echo "Installing dependencies..."
+      npm install
+      echo "Building TypeScript..."
+      npm run build
+      echo "Verifying build output..."
+      ls -la dist/
     startCommand: npm start
     envVars:
       - key: NODE_ENV
