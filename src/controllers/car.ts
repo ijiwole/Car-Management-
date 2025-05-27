@@ -183,22 +183,6 @@ class CarController {
     }
   };
 
-  updateCarStatus = async (req: Request, res: Response) => {
-    try {
-      if (!req.user) {
-        throw new BadRequestError('User not authenticated');
-      }
-      const { status } = req.body;
-      const car = await this.carService.updateCarStatus(req.params.id, status, req.user);
-      res.status(StatusCodes.OK).json({
-        message: 'Car status updated successfully',
-        status: StatusCodes.OK,
-        data: car
-      });
-    } catch (error) {
-      this.handleError(error, res);
-    }
-  };
 }
 
 export const carController = new CarController(); 
