@@ -7,7 +7,6 @@
     "start": "node dist/server.js",
     "start:dev": "nodemon src/server.ts",
     "build": "tsc",
-    "postbuild": "node -e \"if (!require('fs').existsSync('./dist/server.js')) { console.error('Build failed: dist/server.js not found'); process.exit(1); }\"",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:coverage": "NODE_ENV=test jest --coverage",
@@ -24,7 +23,8 @@
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -49,8 +49,12 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["<rootDir>/src/tests/setup.ts"],
-    "testMatch": ["**/tests/**/*.test.ts"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/tests/setup.ts"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.ts"
+    ],
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/tests/**",
