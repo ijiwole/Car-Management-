@@ -4,8 +4,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build output
+# Build output (only in development)
 dist/
+!dist/server.js
+!dist/app.js
 build/
 
 # Environment variables
